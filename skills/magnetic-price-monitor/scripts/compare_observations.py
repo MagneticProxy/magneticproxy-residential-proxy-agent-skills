@@ -12,20 +12,42 @@ CONTEXT_FIELDS = ("availability", "seller", "shipping_context", "tax_context", "
 
 
 def key(row: dict) -> tuple:
-    return row.get("product_id"), row.get("variant_id"), row.get("observed_location")
+    return (
+        row.get("product_id"),
+        row.get("variant_id"),
+        row.get("source_url"),
+        str(row.get("observed_location", "") or "").upper(),
+    )
 
 
 def comparable(row: dict) -> bool:
-    return str(row.get("validation_status", "confirmed") or "").lower() in {"confirmed", "ok", "valid"}
+    required = ("product_id", "variant_id", "source_url", "requested_location", "observed_location", "currency")
+    return (
+        str(row.get("validation_status", "") or "").lower() == "confirmed"
+        and all(row.get(field) for field in required)
+        and str(row["requested_location"]).upper() == str(row["observed_location"]).upper()
+    )
 
 
 def compare(previous: list[dict], current: list[dict], threshold_pct: Decimal) -> list[dict]:
-    old = {key(row): row for row in previous if comparable(row)}
+    if not threshold_pct.is_finite() or threshold_pct < 0:
+        raise ValueError("threshold_pct must be a finite nonnegative number")
+    old: dict[tuple, dict] = {}
+    for row in previous:
+        if comparable(row):
+            observation_key = key(row)
+            if observation_key in old:
+                raise ValueError(f"duplicate confirmed previous observation: {observation_key}")
+            old[observation_key] = row
     changes: list[dict] = []
+    current_keys: set[tuple] = set()
     for row in current:
         if not comparable(row):
             continue
         observation_key = key(row)
+        if observation_key in current_keys:
+            raise ValueError(f"duplicate confirmed current observation: {observation_key}")
+        current_keys.add(observation_key)
         prior = old.get(observation_key)
         if not prior:
             continue
@@ -41,7 +63,7 @@ def compare(previous: list[dict], current: list[dict], threshold_pct: Decimal) -
             try:
                 before = Decimal(str(prior["normalized_price"]))
                 after = Decimal(str(row["normalized_price"]))
-                if before != 0:
+                if before.is_finite() and after.is_finite() and before != 0:
                     pct = ((after - before) / before) * 100
                     if abs(pct) >= threshold_pct:
                         change["changed_fields"]["normalized_price"] = {

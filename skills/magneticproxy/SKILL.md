@@ -1,32 +1,29 @@
 ---
 name: magneticproxy
-description: Configure MagneticProxy routing, credentials, location, rotation, sticky sessions, target support, and connection validation. Use for shared setup or diagnostics; use a specialized MagneticProxy skill for price monitoring, scraper integration, or geographic QA.
+description: Use Magnetic Proxy from its current account interface with browser or computer use. Choose a Capsule, location and session; configure the Chrome extension or a proxy client; verify the real exit and permitted destination; and explain Proxy School when needed. Use for product setup, operation and troubleshooting without assuming an MCP.
 ---
 
-# Configure MagneticProxy safely
+# Use Magnetic Proxy
 
-Turn a permitted workflow into a credential-safe, testable proxy configuration.
+Help the user get a working, observed proxy route. The product supplies residential transport and geographic routing; it does not extract, structure or analyze destination data by itself. Do not assume an official Magnetic Proxy MCP exists.
 
-## Route the request
+## Choose the path
 
-- Competitor prices, catalog availability, and repeated regional observations -> [magnetic-price-monitor](../magnetic-price-monitor/SKILL.md).
-- Python, Requests, Playwright, or Scrapy connection setup -> [magnetic-scraper-proxy-setup](../magnetic-scraper-proxy-setup/SKILL.md).
-- Ads, redirects, landing pages, consent UI, and localized presentation -> [magnetic-geo-qa](../magnetic-geo-qa/SKILL.md).
-- Connection, protocol, location, session, or target-support questions -> handle here.
+- For a Chrome browsing task, read [browser-extension.md](references/browser-extension.md). This includes the useful setup and diagnosis from the Magnetic Proxy Browser handoff.
+- For Requests, Playwright, Scrapy or another proxy client, read [client-setup.md](references/client-setup.md) and [routing-and-protocols.md](references/routing-and-protocols.md). The local `scripts/build_proxy_config.py` builds a password-free configuration.
+- For the product's capabilities or a destination, read [product-and-target-contract.md](references/product-and-target-contract.md). When the user asks how a setting works, use the current Proxy School or official documentation as the source and explain it in the user's language.
+- A price-monitoring or geographic-ad-QA request may also benefit from the optional `magnetic-price-monitor` or `magnetic-geo-qa` skills if installed. Complete the product setup and route verification here; those skills cover the business analysis.
 
-## Shared workflow
+## Operate the current product
 
-1. Identify the target category, authorization, client, volume, geography, statefulness, and actions that require approval.
-2. Read [references/product-and-target-contract.md](references/product-and-target-contract.md) before selecting a Capsule or stating that a target is supported.
-3. Read [references/routing-and-protocols.md](references/routing-and-protocols.md), then run `scripts/build_proxy_config.py` to produce a password-free configuration.
-4. Use rotation for independent requests. Use the shortest sticky session that satisfies a permitted stateful journey.
-5. Validate connectivity, target eligibility, exit location, expected content, session behavior, latency, and estimated bandwidth on a small sample before scaling.
-6. Report the Capsule, routing parameters, validation evidence, failures, and unresolved restrictions without exposing credentials.
+1. Establish the requested destination, country and task, whether the user needs a browser or code client, and whether the task needs continuity across requests. Do not silently substitute a nearby country or `Anywhere` for an exact-country request.
+2. If supported browser/computer tools and an authenticated account are available, inspect the current interface before acting. Identify the account, available Capsule, traffic, location selector, connection profile and current active state from what is visible. Avoid copying credentials into chat, files or logs. If the UI is unavailable or login is required, give the next concrete user step and mark live operation as pending.
+3. Check current target restrictions and choose the Capsule appropriate to the permitted task. The public social Capsule and general restricted-target documentation conflict; do not promise X, Meta, Instagram or LinkedIn access until Product has resolved the specific destination and Capsule. Do not route around a documented block.
+4. Configure the requested connection using the current portal values. Use rotating mode for independent requests and a dedicated sticky session when related steps need continuity. For an exact country, disable fallback in the UI where offered. In a generated username, `hardcountry-true` requires both a country and `sessid`; a rotating route cannot claim strict-country behavior from that flag. Read the saved settings back before testing.
+5. For Chrome, send the saved profile to the official extension and verify the exit in the **same Chrome profile**. For a code client, apply secrets only at runtime and test a small, permitted request. Compare requested and observed country; then test the destination separately. A profile marked Active, a changed IP or HTTP `200` alone is not proof.
+6. If the exit differs, check the last profile sent, country/fallback/session settings and which extension actually controls Chrome's proxy. Use one bounded correction and retest; stop if the cause is still unclear. Do not change another extension, purchase traffic or alter an unrelated profile without the user's authorization.
+7. Report Capsule/profile, mode, requested country, observed exit country and time, destination result, unresolved restrictions and the final active state. Use `configured, route unverified` when a setting was saved but the exit was not observed. Restore a temporary test route when appropriate; do not silently disconnect the user's ongoing work.
 
-## Invariants
+## Boundaries
 
-- Host: `rs.magneticproxy.net`.
-- The username begins `customer-<username>`; routing options are appended to it.
-- A `200` response does not prove correct geography or genuine content.
-- MagneticProxy provides transport and location. Extraction, parsing, normalization, and analysis remain the client's responsibility.
-- Confirm current target rules before production because product restrictions can change.
+Use the user's request to configure or troubleshoot their proxy as authorization for the ordinary steps of that task. Keep credentials in the product, extension or secret store. Ask before purchases, credential rotation, changing an unrelated profile or extension, or actions on a destination beyond the requested task. Do not bypass login gates, CAPTCHAs, browser controls, TLS verification or destination restrictions. A verified proxy country does not prove browser language, account locale, transaction eligibility or access to every page.

@@ -1,26 +1,22 @@
-# Proxy Skills for Price Monitoring, Scrapers, and Geo QA
+# Magnetic Proxy Agent Skill for Browser and Proxy Setup
 
-This model-neutral MagneticProxy skill pack turns three practical proxy needs into testable workflows: competitor price monitoring across countries, rotating proxy setup for Python, Playwright, and Scrapy, and geographic QA for ads and landing pages. It works with Claude, Codex, GLM, DeepSeek, and other harnesses that can load Markdown instructions and Python helpers. The pack validates exit location and target content, keeps credentials out of output, and requires authorization before scaling or interacting with live services.
+The primary [magneticproxy skill](skills/magneticproxy/SKILL.md) helps an agent use the current Magnetic Proxy product without an MCP. With authorized browser or computer use, it can inspect My Proxies, choose a Capsule, country and session, send a saved profile to the Chrome extension, verify the actual exit country, and explain the result or a blocker. It also guides credential-safe setup for Requests, Playwright and Scrapy. If the agent cannot access the account or browser, it gives the next manual step and does not claim a live route was tested.
 
-## Included proxy skills
+## Start with the product skill
 
-- [Monitor Competitor Prices by Country with Python](skills/magnetic-price-monitor/README.md)
-- [Use Rotating Proxies with Python, Playwright and Scrapy](skills/magnetic-scraper-proxy-setup/README.md)
-- [Verify Ad and Landing Pages Across Countries](skills/magnetic-geo-qa/README.md)
-- `magneticproxy`, the shared product, routing, target-support, session, and credential foundation
+- [Use Magnetic Proxy in Chrome or a proxy client](skills/magneticproxy/SKILL.md), including the Chrome workflow from the earlier browser handoff and focused [extension troubleshooting](skills/magneticproxy/references/browser-extension.md).
+- [Install the skill](INSTALL.md) and read the [security boundaries](SECURITY.md).
 
-## Why this pack is useful
+## Existing companion workflows
 
-Proxy examples often stop after a successful status code. These skills also verify the requested country, required page content, session behavior, contextual fields, and collection health. They preserve raw evidence and uncertainty so teams can distinguish a proxy connection from a defensible regional observation.
+- [Monitor competitor prices by country](skills/magnetic-price-monitor/README.md)
+- [Verify ads and landing pages across countries](skills/magnetic-geo-qa/README.md)
+- [Legacy client setup recipes for Python, Playwright and Scrapy](skills/magnetic-scraper-proxy-setup/README.md). Product setup now also lives inside `magneticproxy`; this folder remains available for existing installs.
 
-## Install and use
+The brand skill handles the product connection. Companion workflows add analysis after a route is verified. New platform-specific use-case skills will be released separately.
 
-Follow [INSTALL.md](INSTALL.md) for harness-neutral loading and [COMPATIBILITY.md](COMPATIBILITY.md) for the portability contract. Use [SECURITY.md](SECURITY.md) before connecting credentials or approved live targets.
+## Verification boundary
 
-The included tests are local and do not connect to MagneticProxy. Live smoke testing requires credentials stored in environment variables or a secret store, an authorized target, a safe exit-location endpoint, and explicit approval.
+The repository tests validate local structure and helpers. They do not log in to the product, install the extension, consume traffic or prove that a country route works in a user's Chrome profile. A live result requires an authenticated account, a supported browser/client and an observed exit-country check.
 
-## Discover the right workflow
-
-Use the price monitor for repeated country-level product comparisons. Use the scraper setup for a credential-safe client configuration. Use geo QA for ads, redirects, consent UI, and landing-page evidence.
-
-Learn more in the [official MagneticProxy documentation](https://www.magneticproxy.com/documentation).
+Read the [official Magnetic Proxy documentation](https://www.magneticproxy.com/documentation) and the current account UI for product settings and destination restrictions.

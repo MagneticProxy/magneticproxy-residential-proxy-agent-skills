@@ -24,10 +24,12 @@ class SkillContractTests(unittest.TestCase):
             self.assertIsNotNone(match, folder.name)
             self.assertEqual(match.group(1), folder.name)
 
-    def test_core_routes_every_specialized_skill(self):
+    def test_core_operates_browser_and_code_without_a_specialized_setup_skill(self):
         core = (SKILLS / "magneticproxy" / "SKILL.md").read_text(encoding="utf-8")
-        for name in EXPECTED - {"magneticproxy"}:
-            self.assertIn(f"](../{name}/SKILL.md)", core)
+        for reference in ("browser-extension.md", "client-setup.md"):
+            self.assertIn(reference, core)
+            self.assertTrue((SKILLS / "magneticproxy" / "references" / reference).exists())
+        self.assertNotIn("](../", core)
 
     def test_workflow_readmes_match_skill_titles(self):
         for name in WORKFLOWS:

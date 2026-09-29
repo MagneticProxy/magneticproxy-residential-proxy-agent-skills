@@ -14,7 +14,7 @@ Produce defensible regional observations rather than treating every displayed nu
 3. Verify the exit country before each country-dependent run. Use rotation for independent product pages and a dedicated sticky session only when a permitted location or cart context requires continuity.
 4. Capture [references/observation-schema.md](references/observation-schema.md). Preserve raw displayed values separately from normalized values.
 5. Validate product/variant identity, genuine page content, seller, currency, tax, shipping, membership, login, and promotion context before comparing observations.
-6. Run `scripts/compare_observations.py` to generate candidate changes. Reobserve every threshold-crossing or material contextual change once before alerting.
+6. Run `scripts/compare_observations.py` only on observations explicitly marked `confirmed`, with product/variant/source identity and matching requested/observed country. Duplicate confirmed keys stop comparison. Reobserve every threshold-crossing or material contextual change once before alerting.
 7. Report confirmed changes, ambiguous matches, missing observations, collection failures, requested versus observed geography, confidence, and bandwidth.
 
 ## Boundaries
