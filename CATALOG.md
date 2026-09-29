@@ -18,3 +18,4 @@ Install `magneticproxy` first for product use. Companion skills remain available
 - [Amazon Product Research and Price Comparison with Magnetic Proxy](https://github.com/MagneticProxy/magneticproxy-amazon-product-research-skill)
 - [Shopify Price and Stock Monitoring with Magnetic Proxy](https://github.com/MagneticProxy/magneticproxy-shopify-storefront-monitoring-skill)
 - [Ad Verification by Country and Landing Page QA with Magnetic Proxy](https://github.com/MagneticProxy/magneticproxy-ad-verification-by-country-skill)
+- [AliExpress Supplier Research and Shipping Cost Comparison](https://github.com/MagneticProxy/magneticproxy-aliexpress-supplier-research-skill)
