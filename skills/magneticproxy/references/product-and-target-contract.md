@@ -11,8 +11,7 @@ Choose the Capsule that matches the permitted workflow. General Purpose is suita
 ## Target restrictions
 
 - LinkedIn is documented as blocked across the infrastructure.
-- General documentation and general-purpose products may block X, Meta/Facebook, and Instagram.
-- Dedicated social Capsules currently make different platform claims. These skills do not rely on social access; confirm the selected Capsule and current restriction table rather than generalizing from another plan.
+- Current general documentation declares X, Meta/Facebook and Instagram blocked, while the public social Capsule makes different access claims. Treat this as an unresolved product contradiction. Do not promise access or suggest switching Capsules to evade the documented restriction; request a Product clarification for the specific Capsule and destination before writing a workflow around them.
 - Government/public-sector targets, some email providers, jurisdictions, and ports may be restricted.
 
 Treat a documented restriction as terminal. Do not suggest alternate domains, endpoints, Capsules, or routing tricks to evade it.

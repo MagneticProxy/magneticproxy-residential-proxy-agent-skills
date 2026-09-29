@@ -19,4 +19,6 @@ Evidence and quality:
 - response/content validation state
 - notes and confidence
 
+The comparator accepts only explicit `validation_status: confirmed` rows with nonempty product ID, variant ID, source URL, currency and matching requested/observed country. Its key includes the source URL; duplicate confirmed keys stop comparison rather than silently replacing one observation. An omitted status or wrong-country route is not an alert candidate.
+
 Preserve unavailable, blocked, missing, and ambiguous observations rather than converting them to zero. Currency conversion requires an explicit rate source and timestamp. Never compare distinct variants as the same product.

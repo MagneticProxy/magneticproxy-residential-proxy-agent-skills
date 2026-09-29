@@ -11,10 +11,11 @@ class MagneticProxyMiddleware:
     def process_request(self, request, spider):
         customer = os.environ["MAGNETICPROXY_CUSTOMER"]
         password = os.environ["MAGNETICPROXY_PASSWORD"]
-        username = f"customer-{customer}-cc-us-hardcountry-true"
+        session_id = os.environ["MAGNETICPROXY_SESSION_ID"]  # stable for one journey
+        username = f"customer-{customer}-cc-us-sessid-{session_id}-sesstime-600-hardcountry-true"
         token = base64.b64encode(f"{username}:{password}".encode()).decode()
         request.meta["proxy"] = "https://rs.magneticproxy.net:443"
         request.headers["Proxy-Authorization"] = f"Basic {token}"
 ```
 
-Start with low `CONCURRENT_REQUESTS`, enable a download delay, bound retry codes and attempts, and stop on repeated blocks or challenge content. Use sticky sessions only for permitted pagination or state continuity.
+Start with low `CONCURRENT_REQUESTS`, enable a download delay, bound retry codes and attempts, and stop on repeated blocks or challenge content. The example uses sticky because `hardcountry-true` requires `sessid`; generate a distinct session ID per authorized identity. For independent rotating requests, omit both options and verify each observed country.

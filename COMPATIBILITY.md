@@ -8,7 +8,7 @@ This MagneticProxy skill pack is designed for Claude, Codex, GLM, DeepSeek, and 
 - References are Markdown files linked with relative paths.
 - Helper scripts use ordinary Python 3 and do not import a model SDK.
 - No workflow requires a model-specific tool name, prompt syntax, or proprietary memory feature.
-- Cross-skill routing uses file-relative links. Harnesses without automatic skill discovery should load the specialized skill and `skills/magneticproxy/SKILL.md` together.
+- The primary `magneticproxy` skill contains its own browser and client references. Companion workflows use file-relative links to it when installed together.
 
 ## Optional adapter
 
@@ -16,4 +16,4 @@ Files under `agents/openai.yaml` are optional Codex/OpenAI display metadata. Oth
 
 ## Portability rules
 
-Preserve the full folder structure, including relative references and scripts. Give the runtime read access to Markdown and permission before it runs a helper script or uses live credentials. The skills ask before making network requests, running a scraper or browser, or changing a production schedule, and they remain limited to authorized targets regardless of the selected model.
+Preserve each installed skill's full folder, including relative references and scripts. Give the runtime read access to Markdown. Browser/computer use, authenticated account access and live proxy routing depend on the host agent and user's account; loading a skill alone cannot supply them. The user's requested setup authorizes ordinary bounded checks, while purchases, unrelated account changes and actions outside the requested target need their own authorization.

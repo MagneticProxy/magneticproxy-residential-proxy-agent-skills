@@ -57,6 +57,8 @@ def build_username(
     if hard_country:
         if not country:
             raise ValueError("hard_country requires country")
+        if not session_id:
+            raise ValueError("hard_country requires session_id; verify each rotating exit instead")
         parts += ["hardcountry", "true"]
     return "-".join(parts)
 
