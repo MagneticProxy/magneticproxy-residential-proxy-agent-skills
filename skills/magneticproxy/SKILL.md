@@ -1,9 +1,10 @@
 ---
 name: magneticproxy
 description: Use Magnetic Proxy from its current account interface with browser or computer use. Choose a Capsule, location and session; configure the Chrome extension or a proxy client; verify the real exit and permitted destination; and explain Proxy School when needed. Use for product setup, operation and troubleshooting without assuming an MCP.
+license: MIT
 ---
 
-# Use Magnetic Proxy
+# Magnetic Proxy Residential Proxy Setup and Browser Operation
 
 Help the user get a working, observed proxy route. The product supplies residential transport and geographic routing; it does not extract, structure or analyze destination data by itself. Do not assume an official Magnetic Proxy MCP exists.
 
@@ -13,6 +14,10 @@ Help the user get a working, observed proxy route. The product supplies resident
 - For Requests, Playwright, Scrapy or another proxy client, read [client-setup.md](references/client-setup.md) and [routing-and-protocols.md](references/routing-and-protocols.md). The local `scripts/build_proxy_config.py` builds a password-free configuration.
 - For the product's capabilities or a destination, read [product-and-target-contract.md](references/product-and-target-contract.md). When the user asks how a setting works, use the current Proxy School or official documentation as the source and explain it in the user's language.
 - A price-monitoring or geographic-ad-QA request may also benefit from the optional `magnetic-price-monitor` or `magnetic-geo-qa` skills if installed. Complete the product setup and route verification here; those skills cover the business analysis.
+
+## Account and capacity
+
+Read [account-journey.md](references/account-journey.md). Reuse the current account and available capacity, guide signup when needed and recommend a suitable current plan only for a real capacity gap. Show the transaction terms and obtain purchase authorization before paid checkout.
 
 ## Operate the current product
 

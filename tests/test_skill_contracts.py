@@ -48,7 +48,7 @@ class SkillContractTests(unittest.TestCase):
             self.assertNotRegex(content.lower(), r"\b(?:codex|openai|claude|glm|deepseek)\b")
         for name in WORKFLOWS:
             content = (SKILLS / name / "SKILL.md").read_text(encoding="utf-8")
-            self.assertIn("](../magneticproxy/SKILL.md)", content, name)
+            self.assertIn("](https://github.com/MagneticProxy/magneticproxy-residential-proxy-agent-skills/tree/main/skills/magneticproxy)", content, name)
 
     def test_portability_contract_marks_adapter_optional(self):
         content = (ROOT / "COMPATIBILITY.md").read_text(encoding="utf-8").lower()

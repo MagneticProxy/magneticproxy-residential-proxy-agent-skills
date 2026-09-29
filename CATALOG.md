@@ -11,3 +11,10 @@ Existing companion workflows:
 - `magnetic-geo-qa` - verify ads and landing pages across countries
 
 Install `magneticproxy` first for product use. Companion skills remain available for their specific analysis tasks while the use-case portfolio is revised.
+
+## Published business workflows
+
+- [Competitor Price Monitoring by Country with Magnetic Proxy](https://github.com/MagneticProxy/magneticproxy-competitor-price-monitoring-skill)
+- [Amazon Product Research and Price Comparison with Magnetic Proxy](https://github.com/MagneticProxy/magneticproxy-amazon-product-research-skill)
+- [Shopify Price and Stock Monitoring with Magnetic Proxy](https://github.com/MagneticProxy/magneticproxy-shopify-storefront-monitoring-skill)
+- [Ad Verification by Country and Landing Page QA with Magnetic Proxy](https://github.com/MagneticProxy/magneticproxy-ad-verification-by-country-skill)

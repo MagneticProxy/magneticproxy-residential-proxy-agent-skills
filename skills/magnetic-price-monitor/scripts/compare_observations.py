@@ -9,6 +9,7 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
 CONTEXT_FIELDS = ("availability", "seller", "shipping_context", "tax_context", "member_or_promo_context")
+PRICE_CONTEXT = ("seller", "shipping_context", "tax_context", "member_or_promo_context")
 
 
 def key(row: dict) -> tuple:
@@ -59,11 +60,16 @@ def compare(previous: list[dict], current: list[dict], threshold_pct: Decimal) -
             "requires_confirmation": True,
         }
 
-        if row.get("currency") == prior.get("currency"):
+        # Unknown or changed commercial context cannot support a like-for-like price alert.
+        same_context = all(
+            row.get(field) not in (None, "") and row.get(field) == prior.get(field)
+            for field in PRICE_CONTEXT
+        )
+        if row.get("currency") == prior.get("currency") and same_context:
             try:
                 before = Decimal(str(prior["normalized_price"]))
                 after = Decimal(str(row["normalized_price"]))
-                if before.is_finite() and after.is_finite() and before != 0:
+                if before.is_finite() and after.is_finite() and before > 0 and after >= 0 and before != after:
                     pct = ((after - before) / before) * 100
                     if abs(pct) >= threshold_pct:
                         change["changed_fields"]["normalized_price"] = {

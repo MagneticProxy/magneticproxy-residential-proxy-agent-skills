@@ -18,4 +18,6 @@ class MagneticProxyMiddleware:
         request.headers["Proxy-Authorization"] = f"Basic {token}"
 ```
 
-Start with low `CONCURRENT_REQUESTS`, enable a download delay, bound retry codes and attempts, and stop on repeated blocks or challenge content. The example uses sticky because `hardcountry-true` requires `sessid`; generate a distinct session ID per authorized identity. For independent rotating requests, omit both options and verify each observed country.
+Start with low `CONCURRENT_REQUESTS`, enable a download delay, bound retry codes and attempts, and stop on any access denial or challenge content. The example uses sticky because `hardcountry-true` requires `sessid`; generate a distinct session ID per authorized identity. For independent rotating requests, omit both options and verify each observed country.
+
+These snippets demonstrate client configuration; they are not complete production crawlers. Validate installed client support for the current proxy protocol before use. In particular, HTTPS-to-proxy support varies by browser/client; use a currently documented supported endpoint rather than disabling TLS checks. Stop on CAPTCHA, 403, 429 or a target denial and do not rotate to evade it.

@@ -52,6 +52,10 @@ class ObservationTests(unittest.TestCase):
             "currency": "USD",
             "normalized_price": "100",
             "validation_status": "confirmed",
+            "seller": "authorized-store",
+            "shipping_context": "item-only; shipping excluded",
+            "tax_context": "tax excluded",
+            "member_or_promo_context": "public non-member price",
         }
         row.update(changes)
         return row
@@ -91,6 +95,23 @@ class ObservationTests(unittest.TestCase):
         current = [self.observation(normalized_price="120"), self.observation(normalized_price="130")]
         with self.assertRaisesRegex(ValueError, "duplicate confirmed current"):
             compare.compare(previous, current, Decimal("1"))
+
+    def test_changed_seller_or_promotion_does_not_emit_price_change(self):
+        for field in compare.PRICE_CONTEXT:
+            with self.subTest(field=field):
+                result = compare.compare([self.observation()], [self.observation(normalized_price="80", **{field:"different"})], Decimal("1"))
+                self.assertEqual(len(result), 1)
+                self.assertNotIn("normalized_price", result[0]["changed_fields"])
+                self.assertIn(field, result[0]["changed_fields"])
+
+    def test_unknown_context_and_negative_price_do_not_emit_price_change(self):
+        for value in (None, ""):
+            result = compare.compare([self.observation(seller=value)], [self.observation(seller=value, normalized_price="80")], Decimal("1"))
+            self.assertEqual(result, [])
+        self.assertEqual(compare.compare([self.observation()], [self.observation(normalized_price="-1")], Decimal("1")), [])
+
+    def test_zero_threshold_does_not_alert_on_unchanged_price(self):
+        self.assertEqual(compare.compare([self.observation()], [self.observation()], Decimal("0")), [])
 
 
 if __name__ == "__main__":

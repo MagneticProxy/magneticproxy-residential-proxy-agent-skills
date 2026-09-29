@@ -22,3 +22,5 @@ const browser = await chromium.launch({
 ```
 
 Use a distinct session ID and fresh browser context for each location or authorized identity. For independent rotating observations, omit both `sessid` and `hardcountry-true`, then verify each observed location. Verify location before sensitive navigation and pause on authentication challenges or unexpected IP replacement.
+
+These snippets demonstrate client configuration; they are not complete production crawlers. Validate installed client support for the current proxy protocol before use. In particular, HTTPS-to-proxy support varies by browser/client; use a currently documented supported endpoint rather than disabling TLS checks. Stop on CAPTCHA, 403, 429 or a target denial and do not rotate to evade it.
