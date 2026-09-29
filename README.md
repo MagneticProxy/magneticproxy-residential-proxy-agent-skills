@@ -1,11 +1,21 @@
-# Magnetic Proxy Agent Skill for Browser and Proxy Setup
+# Magnetic Proxy Residential Proxy Skill for Chrome and Code Clients
 
 The primary [magneticproxy skill](skills/magneticproxy/SKILL.md) helps an agent use the current Magnetic Proxy product without an MCP. With authorized browser or computer use, it can inspect My Proxies, choose a Capsule, country and session, send a saved profile to the Chrome extension, verify the actual exit country, and explain the result or a blocker. It also guides credential-safe setup for Requests, Playwright and Scrapy. If the agent cannot access the account or browser, it gives the next manual step and does not claim a live route was tested.
+
+Use it to set up [Magnetic Proxy](https://www.magneticproxy.com/) in a browser or client, check where traffic actually exits, and troubleshoot the connection. The skill supplies instructions; the agent still needs compatible browser tools and access to your authenticated account.
 
 ## Start with the product skill
 
 - [Use Magnetic Proxy in Chrome or a proxy client](skills/magneticproxy/SKILL.md), including the Chrome workflow from the earlier browser handoff and focused [extension troubleshooting](skills/magneticproxy/references/browser-extension.md).
 - [Install the skill](INSTALL.md) and read the [security boundaries](SECURITY.md).
+
+If you use the Skills CLI, install only the product skill with:
+
+```bash
+npx skills add MagneticProxy/magneticproxy-residential-proxy-agent-skills --skill magneticproxy
+```
+
+Or copy this into a coding agent that can install skills: "Install only the `magneticproxy` skill from https://github.com/MagneticProxy/magneticproxy-residential-proxy-agent-skills, then help me set up and verify my requested proxy route." Confirm the installation before asking it to operate your account; a chat without skill installation support can still read the linked instructions.
 
 ## Existing companion workflows
 

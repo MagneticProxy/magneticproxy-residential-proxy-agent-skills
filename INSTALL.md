@@ -2,6 +2,8 @@
 
 Install the complete `skills/magneticproxy/` folder, including its `SKILL.md`, `references/` and `scripts/`. Install the other folders only when you want their companion workflows. Preserve folder names and relative paths.
 
+For an agent supported by the [Skills CLI](https://github.com/vercel-labs/skills), run `npx skills add MagneticProxy/magneticproxy-residential-proxy-agent-skills --skill magneticproxy`. Use `--list` instead of `--skill magneticproxy` to preview all skills in this repository without installing them. The command installs instructions; it does not authenticate or activate a proxy.
+
 ## Any LLM or agent harness
 
 1. Register `skills/magneticproxy/` as one skill or load its `SKILL.md` when the user asks to use or troubleshoot Magnetic Proxy.
