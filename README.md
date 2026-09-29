@@ -17,13 +17,17 @@ npx skills add MagneticProxy/magneticproxy-residential-proxy-agent-skills --skil
 
 Or copy this into a coding agent that can install skills: "Install only the `magneticproxy` skill from https://github.com/MagneticProxy/magneticproxy-residential-proxy-agent-skills, then help me set up and verify my requested proxy route." Confirm the installation before asking it to operate your account; a chat without skill installation support can still read the linked instructions.
 
-## Existing companion workflows
+## Technical recipes and compatibility
 
-- [Monitor competitor prices by country](skills/magnetic-price-monitor/README.md)
-- [Verify ads and landing pages across countries](skills/magnetic-geo-qa/README.md)
-- [Legacy client setup recipes for Python, Playwright and Scrapy](skills/magnetic-scraper-proxy-setup/README.md). Product setup now also lives inside `magneticproxy`; this folder remains available for existing installs.
+The primary `magneticproxy` skill is the entry point for product operation. The standalone repositories below are the recommended business workflows.
 
-The brand skill handles the product connection. Companion workflows add analysis after a route is verified. Dedicated business workflows are listed below.
+Existing installations remain supported:
+
+- [Legacy price comparator](skills/magnetic-price-monitor/README.md): technical helper for its documented JSON schema. New watchlists should use the standalone Competitor Price Monitoring repository and its CSV coverage report.
+- [Legacy geographic QA recipe](skills/magnetic-geo-qa/README.md): retained for existing users. Start new campaign work with the standalone Ad Verification repository.
+- [Client recipes for Python, Playwright and Scrapy](skills/magnetic-scraper-proxy-setup/README.md): optional implementation detail for product setup, not another business use case.
+
+These compatibility recipes do not need separate marketing landings or an additional installation for ordinary browser setup.
 
 ## Verification boundary
 
@@ -33,7 +37,7 @@ Read the [official Magnetic Proxy documentation](https://www.magneticproxy.com/d
 
 ## Log in or sign up and choose capacity
 
-1. **Install and connect.** Install this skill and the `magneticproxy` product skill. Confirm your agent has browser/computer control or an authorized proxy client; installation alone provides no account access.
+1. **Install and connect.** Install the `magneticproxy` product skill using the command above. Confirm your agent has browser/computer control or an authorized proxy client; installation alone provides no account access.
 2. **Log in or sign up.** Open [Magnetic Proxy](https://app.magneticproxy.com/#/my-proxies). Reuse your account; otherwise use the visible Sign up flow. Complete authentication yourself without pasting credentials into the conversation.
 3. **Choose capacity for the job.** Inspect available Capsules and GB. For ongoing offer monitoring, assess Price Monitoring; for authorized campaign landing QA, assess General Purpose Premium. Start with existing suitable capacity. If capacity is insufficient, compare [current plans](https://www.magneticproxy.com/pricing) and recommend the smallest suitable option from observed pilot usage. Follow its current Choose Plan checkout link; do not hardcode a price, discount or checkout token.
 4. **Approve any purchase.** Show Capsule, capacity, billing period and current cost before purchase. Continue paid checkout only when the user explicitly authorizes that transaction. A skill installation is not purchase approval.
@@ -59,3 +63,7 @@ Original instructions and code are available under the [MIT License](LICENSE). P
 ## Authenticated product check
 
 On 2026-09-28, browser testing saved a separate US rotating connection profile and observed the current Capsule and profile controls. The installed extension was disabled in the tested Chrome profile; route activation and exit-country verification were not completed. Sticky-session preview discrepancies are documented in [browser operation guidance](skills/magneticproxy/references/browser-extension.md). A saved profile is not proof of a working route or target access.
+
+## Latest QA review
+
+Read the [2026-09-29 QA review](QA-2026-09-29.md) for executed checks, repaired behavior, consolidation decisions and the exact live-testing boundary.
