@@ -6,6 +6,12 @@ The primary [magneticproxy skill](skills/magneticproxy/SKILL.md) helps an agent 
 
 Use it to set up [Magnetic Proxy](https://www.magneticproxy.com/) in a browser or client, check where traffic actually exits, and troubleshoot the connection. The skill supplies instructions; the agent still needs compatible browser tools and access to your authenticated account.
 
+
+## Release status
+
+Public preview: the core instructions and helpers are tested; full live coverage is still incomplete. Read the [dated QA report](QA-2026-09-29.md) before relying on a particular execution path.
+
+
 ## Start with the product skill
 
 - [Use Magnetic Proxy in Chrome or a proxy client](skills/magneticproxy/SKILL.md), including the Chrome workflow from the earlier browser handoff and focused [extension troubleshooting](skills/magneticproxy/references/browser-extension.md).
