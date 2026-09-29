@@ -2,6 +2,9 @@
 name: magnetic-price-monitor
 description: Monitor permitted competitor prices, availability, sellers, and shipping context across countries with MagneticProxy, preserving raw evidence and confirming changes before alerts. Use for recurring regional price observation; not for purchases or guaranteed customer eligibility.
 license: MIT
+metadata:
+  author: MagneticProxy
+  repository: https://github.com/MagneticProxy/magneticproxy-residential-proxy-agent-skills
 ---
 
 # Monitor Competitor Prices by Country with Python

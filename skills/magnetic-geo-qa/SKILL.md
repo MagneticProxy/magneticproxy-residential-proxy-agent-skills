@@ -2,6 +2,9 @@
 name: magnetic-geo-qa
 description: Compare permitted ads, redirects, landing pages, consent experiences, offers, and availability across countries with MagneticProxy, verified exits, isolated browser contexts, and evidence. Use for geographic campaign QA; not for fraud conclusions or conversions.
 license: MIT
+metadata:
+  author: MagneticProxy
+  repository: https://github.com/MagneticProxy/magneticproxy-residential-proxy-agent-skills
 ---
 
 # Verify Ad and Landing Pages Across Countries

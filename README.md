@@ -1,5 +1,7 @@
 # Magnetic Proxy Residential Proxy Skill for Chrome and Code Clients
 
+**Official Magnetic Proxy agent skills** · Published and maintained by [MagneticProxy](https://github.com/MagneticProxy), the official Magnetic Proxy GitHub organization. [Visit Magnetic Proxy](https://www.magneticproxy.com/).
+
 The primary [magneticproxy skill](skills/magneticproxy/SKILL.md) helps an agent use the current Magnetic Proxy product without an MCP. With authorized browser or computer use, it can inspect My Proxies, choose a Capsule, country and session, send a saved profile to the Chrome extension, verify the actual exit country, and explain the result or a blocker. It also guides credential-safe setup for Requests, Playwright and Scrapy. If the agent cannot access the account or browser, it gives the next manual step and does not claim a live route was tested.
 
 Use it to set up [Magnetic Proxy](https://www.magneticproxy.com/) in a browser or client, check where traffic actually exits, and troubleshoot the connection. The skill supplies instructions; the agent still needs compatible browser tools and access to your authenticated account.

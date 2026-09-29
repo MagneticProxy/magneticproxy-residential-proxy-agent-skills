@@ -2,6 +2,9 @@
 name: magnetic-scraper-proxy-setup
 description: Configure MagneticProxy rotating or sticky residential proxies for Python Requests, Playwright, and Scrapy with server-side secrets, exit validation, bounded retries, and target checks. Use when integrating a scraper or browser client; not to bypass restrictions or guarantee access.
 license: MIT
+metadata:
+  author: MagneticProxy
+  repository: https://github.com/MagneticProxy/magneticproxy-residential-proxy-agent-skills
 ---
 
 # Use Rotating Proxies with Python, Playwright and Scrapy

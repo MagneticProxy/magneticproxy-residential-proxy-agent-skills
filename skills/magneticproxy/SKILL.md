@@ -2,6 +2,9 @@
 name: magneticproxy
 description: Use Magnetic Proxy from its current account interface with browser or computer use. Choose a Capsule, location and session; configure the Chrome extension or a proxy client; verify the real exit and permitted destination; and explain Proxy School when needed. Use for product setup, operation and troubleshooting without assuming an MCP.
 license: MIT
+metadata:
+  author: MagneticProxy
+  repository: https://github.com/MagneticProxy/magneticproxy-residential-proxy-agent-skills
 ---
 
 # Magnetic Proxy Residential Proxy Setup and Browser Operation
