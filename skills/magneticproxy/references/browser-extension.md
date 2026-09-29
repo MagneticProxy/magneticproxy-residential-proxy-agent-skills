@@ -23,3 +23,9 @@ If GetMyIP is unavailable, a second trusted IP check can help, but it will see t
 Treat an initial `No credentials available` widget as an observation, not a definitive account diagnosis: in the same authenticated check it later populated while the profile builder worked. Recheck the loaded account/section once before declaring credentials missing. Do not regenerate credentials to fix an unconfirmed loading issue.
 
 To change country, save/select the new profile, send it to the extension and verify again. To finish a temporary test, use the extension's current off control and verify the resulting route. State whether Magnetic Proxy remains active; do not infer that the route is direct if another proxy or VPN may still control Chrome.
+
+## Enabled extension without a confirmed profile transfer
+
+In the 2026-09-29 follow-up, the installed extension was initially disabled. After it was enabled, the popup was inactive and still selected an older country profile; sending the intended profile did not establish a verified route. A portal reload and one resend opened the extension installation guide. This is a failed handoff observation, not evidence that the proxy service or the user's plan is unavailable.
+
+If enabling the extension after opening the portal, reload the portal once so its extension bridge can initialize, then resend once and read back the selected profile and connection state. An installation guide opening is not proof of successful transfer. If the browser tool blocks the extension's internal page, ask the user to select and activate the intended profile manually; do not bypass the tool restriction. Continue only after same-profile GetMyIP confirms the requested country. Preserve and restore the user's earlier state when temporary testing ends; report any restoration that requires the user.
