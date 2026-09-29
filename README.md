@@ -54,3 +54,7 @@ Run `python3 -m unittest discover -s tests -v` for package and helper checks. Re
 ## License
 
 Original instructions and code are available under the [MIT License](LICENSE). Product subscriptions, service access and third-party data remain subject to their respective terms. This license does not grant trademark rights or permission to collect third-party content.
+
+## Authenticated product check
+
+On 2026-09-28, browser testing saved a separate US rotating connection profile and observed the current Capsule and profile controls. The installed extension was disabled in the tested Chrome profile; route activation and exit-country verification were not completed. Sticky-session preview discrepancies are documented in [browser operation guidance](skills/magneticproxy/references/browser-extension.md). A saved profile is not proof of a working route or target access.
