@@ -39,7 +39,7 @@ Use this skill to connect an authorized Python Requests, Playwright, or Scrapy w
 
 ## Installation and product connection
 
-Load this `SKILL.md` with the [shared MagneticProxy guidance](../magneticproxy/SKILL.md). The Markdown references and Python helper are portable across compatible LLM and agent harnesses.
+Start this recipe directly. Its [included product onboarding](references/brand-onboarding.md) prepares the official Magnetic Proxy product skill for the product step; no separate preinstallation is required. The Markdown references and Python helper are portable across compatible LLM and agent harnesses.
 
 Store the customer name in `MAGNETICPROXY_CUSTOMER` and the password in `MAGNETICPROXY_PASSWORD` or equivalent harness secrets. Review the [official MagneticProxy documentation](https://www.magneticproxy.com/documentation) before testing because routing and target rules can change.
 
