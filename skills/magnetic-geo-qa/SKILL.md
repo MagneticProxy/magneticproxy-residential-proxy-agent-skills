@@ -31,6 +31,6 @@ Do not generate paid ad clicks for testing, submit forms, log in, purchase, acce
 
 ## Product account dependency
 
-For browser operation, install the `magneticproxy` product skill from https://github.com/MagneticProxy/magneticproxy-residential-proxy-agent-skills and follow its account and capacity journey. If it is not installed, read the linked product instructions and current documentation; never assume sibling skill folders exist.
+Read [the included product onboarding](references/brand-onboarding.md) when this recipe needs Magnetic Proxy. Reuse or prepare the official `magneticproxy` product skill during the same conversation, then return to this recipe's task. A separate user-led preinstallation is not required; do not assume sibling folders are installed.
 
 Use only permitted targets. Stop on CAPTCHA, 403, 429 or access denial; do not rotate to evade a restriction. For campaign QA, use approved previews and owned or authorized destinations. Never generate live paid impressions or clicks merely to test an ad.

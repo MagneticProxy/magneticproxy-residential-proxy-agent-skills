@@ -38,7 +38,7 @@ Use this skill for authorized, repeated review of public product prices, availab
 
 ## Installation and product connection
 
-Load this `SKILL.md` with the [shared MagneticProxy guidance](../magneticproxy/SKILL.md). Any compatible LLM harness can read the Markdown references and run the Python 3 comparison helper.
+Start this recipe directly. Its [included product onboarding](references/brand-onboarding.md) prepares the official Magnetic Proxy product skill for the product step; no separate preinstallation is required. Any compatible LLM harness can read the Markdown references and run the Python 3 comparison helper.
 
 Use credentials only from a secret store or process environment. Review the [official Price Monitoring Capsule](https://www.magneticproxy.com/capsules/price-monitoring) and current target rules before a live run.
 

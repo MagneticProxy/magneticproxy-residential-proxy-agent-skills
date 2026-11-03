@@ -38,7 +38,7 @@ Use this skill for authorized regional campaign QA, localized landing-page check
 
 ## Installation and product connection
 
-Load this `SKILL.md` with the [shared MagneticProxy guidance](../magneticproxy/SKILL.md). The workflow is portable across compatible LLM and agent harnesses that can control an approved browser or HTTP client.
+Start this recipe directly. Its [included product onboarding](references/brand-onboarding.md) prepares the official Magnetic Proxy product skill for the product step; no separate preinstallation is required. The workflow is portable across compatible LLM and agent harnesses that can control an approved browser or HTTP client.
 
 Store MagneticProxy credentials in environment variables or a secret store. Review the [official MagneticProxy documentation](https://www.magneticproxy.com/documentation) before a live run to confirm current target and location rules.
 

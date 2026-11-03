@@ -7,6 +7,10 @@ The primary [magneticproxy skill](skills/magneticproxy/SKILL.md) helps an agent 
 Use it to set up [Magnetic Proxy](https://www.magneticproxy.com/) in a browser or client, check where traffic actually exits, and troubleshoot the connection. The skill supplies instructions; the agent still needs compatible browser tools and access to your authenticated account.
 
 
+## Included in use-case onboarding
+
+The official Magnetic Proxy use-case skills prepare this `magneticproxy` product skill during their onboarding. Users can start from a use-case repository without installing the product skill first. The agent reuses an available copy or prepares the product instructions, preserves the original task, handles the needed account/product step and returns to the use-case deliverable. A host without installation or browser support receives an explicit manual or read-only path rather than a false success claim.
+
 ## Release status
 
 Public preview: the core instructions and helpers are tested; full live coverage is still incomplete. Read the [dated QA report](QA-2026-09-29.md) before relying on a particular execution path.

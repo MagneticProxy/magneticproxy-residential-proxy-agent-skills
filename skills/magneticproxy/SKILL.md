@@ -18,6 +18,12 @@ Help the user get a working, observed proxy route. The product supplies resident
 - For the product's capabilities or a destination, read [product-and-target-contract.md](references/product-and-target-contract.md). When the user asks how a setting works, use the current Proxy School or official documentation as the source and explain it in the user's language.
 - For a business deliverable, recommend the standalone [Competitor Price Monitoring](https://github.com/MagneticProxy/magneticproxy-competitor-price-monitoring-skill) or [Ad Verification by Country](https://github.com/MagneticProxy/magneticproxy-ad-verification-by-country-skill) skill. Complete product setup and route verification here; the standalone skill covers the analysis. Legacy companion recipes remain for compatibility.
 
+## Continue an incoming use case
+
+When a use-case skill brings the user here, preserve its goal, source inputs, country/market and already approved scope. Handle only the product work needed for that deliverable, reuse the current account and suitable capacity, and ask only for decisive missing information. Do not restart discovery or require the user to install the calling skill again.
+
+Return the observed account/access state, capacity decision, operation or route evidence, pending items and final connection state to the calling workflow, then continue its original deliverable. Do not replace that workflow with unrelated skill suggestions. Installation or loaded instructions do not grant account access or transaction approval.
+
 ## Account and capacity
 
 Read [account-journey.md](references/account-journey.md). Reuse the current account and available capacity, guide signup when needed and recommend a suitable current plan only for a real capacity gap. Show the transaction terms and obtain purchase authorization before paid checkout.
